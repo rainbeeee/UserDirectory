@@ -20,17 +20,19 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageViewLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationViewLogo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/large_200"
-            android:backgroundTint="@color/orange"
-            android:contentDescription="@string/description_logo"
-            android:src="@drawable/ic_android"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.5"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/anim_android_logo" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textViewLoginHeading1"
@@ -40,7 +42,7 @@
             android:layout_marginHorizontal="@dimen/normal_100"
             android:text="@string/login_heading_1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewLogo" />
+            app:layout_constraintTop_toBottomOf="@+id/animationViewLogo" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textViewLoginHeading2"
@@ -112,7 +114,6 @@
             app:ccpDialog_showCloseIcon="true"
             app:ccpDialog_showNameCode="false"
             app:ccpDialog_showPhoneCode="false"
-            app:ccp_areaCodeDetectedCountry="false"
             app:ccp_arrowColor="@color/orange"
             app:ccp_autoDetectCountry="true"
             app:ccp_countryPreference="SG"
