@@ -63,7 +63,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -84,28 +88,37 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutCountry"
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/countryPicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/normal_200"
-        android:hint="@string/country"
-        app:boxBackgroundColor="@android:color/transparent"
-        app:endIconTint="@color/orange"
+        android:layout_marginTop="@dimen/small_100"
+        app:ccpDialog_fastScroller_bubbleColor="@color/orange"
+        app:ccpDialog_fastScroller_handleColor="@color/orange"
+        app:ccpDialog_keyboardAutoPopup="false"
+        app:ccpDialog_showCloseIcon="true"
+        app:ccpDialog_showNameCode="false"
+        app:ccpDialog_showPhoneCode="false"
+        app:ccp_areaCodeDetectedCountry="false"
+        app:ccp_arrowColor="@color/orange"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_countryPreference="SG"
+        app:ccp_rememberLastSelection="true"
+        app:ccp_showFullName="true"
+        app:ccp_showNameCode="false"
+        app:ccp_showPhoneCode="false"
+        app:ccp_textGravity="LEFT"
+        app:ccp_textSize="@dimen/font_size_14"
         app:layout_constraintEnd_toEndOf="@id/inputLayoutUsername"
         app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextCountry"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
 
     <com.google.android.material.button.MaterialButton
         style="MaterialComponents.Button"
@@ -117,5 +130,5 @@
         app:cornerRadius="@dimen/normal_100"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutCountry" />
+        app:layout_constraintTop_toBottomOf="@+id/countryPicker" />
 </androidx.constraintlayout.widget.ConstraintLayout>
