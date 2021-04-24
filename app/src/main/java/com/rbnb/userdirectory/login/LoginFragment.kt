@@ -6,27 +6,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.rbnb.userdirectory.R
+import com.rbnb.userdirectory.databinding.FragmentLoginBinding
 
-class LoginFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
+class LoginFragment : Fragment(), View.OnClickListener {
 
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_login, container, false)
+    ): View {
+        val binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        binding.clickHandler = this
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
+    override fun onClick(view: View) {
+        when (view.id) {
+            R.id.buttonLogin -> navigateToUserList()
+        }
+    }
+
+    private fun navigateToUserList() {
+        val action = LoginFragmentDirections.actionLoginFragmentToUserListFragment()
+        findNavController().navigate(action)
+    }
 }

@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="clickHandler"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -128,11 +131,13 @@
             app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonLogin"
             style="MaterialComponents.Button"
             android:layout_width="@dimen/xlarge_200"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/normal_100"
             android:layout_marginTop="@dimen/normal_100"
+            android:onClick="@{clickHandler::onClick}"
             android:text="@string/login"
             app:cornerRadius="@dimen/normal_100"
             app:layout_constraintEnd_toEndOf="parent"
