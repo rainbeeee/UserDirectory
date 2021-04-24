@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription=""
+        android:contentDescription="@string/description_login_shape"
         android:src="@drawable/bg_login_shape"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/large_200"
         android:backgroundTint="@color/orange"
+        android:contentDescription="@string/description_logo"
         android:src="@drawable/ic_android"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
