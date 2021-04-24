@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">User Directory</string>
+    <string name="login_heading_1">Welcome back!</string>
+    <string name="login_heading_2">Sign in to your account</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="country">Country</string>
+    <string name="login">login</string>
+</resources>
