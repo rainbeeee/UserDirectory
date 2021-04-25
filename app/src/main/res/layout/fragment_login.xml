@@ -6,142 +6,159 @@
     <data>
 
         <variable
+            name="viewModel"
+            type="com.rbnb.userdirectory.login.LoginViewModel" />
+
+        <variable
             name="clickHandler"
             type="android.view.View.OnClickListener" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".login.LoginFragment">
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/description_login_shape"
-            android:src="@drawable/bg_login_shape"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationViewLogo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/large_200"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.5"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/anim_android_logo" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textViewLoginHeading1"
-            style="@style/TextAppearance.MaterialComponents.Headline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:text="@string/login_heading_1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/animationViewLogo" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/textViewLoginHeading2"
-            style="@style/TextAppearance.MaterialComponents.Headline6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/login_heading_2"
-            app:layout_constraintStart_toStartOf="@id/textViewLoginHeading1"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeading1" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutUsername"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_200"
-            android:layout_marginTop="@dimen/normal_150"
-            android:hint="@string/username"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:endIconDrawable="@drawable/ic_person_24"
-            app:endIconMode="custom"
-            app:endIconTint="@color/orange"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewLoginHeading2">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextUsername"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:maxLines="1"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/inputLayoutPassword"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_200"
-            android:hint="@string/password"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:endIconMode="password_toggle"
-            app:endIconTint="@color/orange"
-            app:layout_constraintEnd_toEndOf="@id/inputLayoutUsername"
-            app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
-            app:layout_constraintTop_toBottomOf="@+id/inputLayoutUsername">
+            tools:context=".login.LoginFragment">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPassword"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/description_login_shape"
+                android:src="@drawable/bg_login_shape"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationViewLogo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/large_200"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.5"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/anim_android_logo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewLoginHeading1"
+                style="@style/TextAppearance.MaterialComponents.Headline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:text="@string/login_heading_1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/animationViewLogo" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewLoginHeading2"
+                style="@style/TextAppearance.MaterialComponents.Headline6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_heading_2"
+                app:layout_constraintStart_toStartOf="@id/textViewLoginHeading1"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeading1" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutUsername"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_200"
+                android:layout_marginTop="@dimen/normal_150"
+                android:hint="@string/username"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:endIconDrawable="@drawable/ic_person_24"
+                app:endIconMode="custom"
+                app:endIconTint="@color/orange"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewLoginHeading2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:text="@={viewModel.username}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLayoutPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:paddingStart="0dp"
-                android:paddingEnd="0dp" />
+                android:layout_marginHorizontal="@dimen/normal_200"
+                android:hint="@string/password"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:endIconMode="password_toggle"
+                app:endIconTint="@color/orange"
+                app:layout_constraintEnd_toEndOf="@id/inputLayoutUsername"
+                app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
+                app:layout_constraintTop_toBottomOf="@+id/inputLayoutUsername">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:text="@={viewModel.password}" />
 
-        <com.hbb20.CountryCodePicker
-            android:id="@+id/countryPicker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_200"
-            android:layout_marginTop="@dimen/small_100"
-            app:ccpDialog_fastScroller_bubbleColor="@color/orange"
-            app:ccpDialog_fastScroller_handleColor="@color/orange"
-            app:ccpDialog_keyboardAutoPopup="false"
-            app:ccpDialog_showCloseIcon="true"
-            app:ccpDialog_showNameCode="false"
-            app:ccpDialog_showPhoneCode="false"
-            app:ccp_arrowColor="@color/orange"
-            app:ccp_autoDetectCountry="true"
-            app:ccp_countryPreference="SG"
-            app:ccp_rememberLastSelection="true"
-            app:ccp_showFullName="true"
-            app:ccp_showNameCode="false"
-            app:ccp_showPhoneCode="false"
-            app:ccp_textGravity="LEFT"
-            app:ccp_textSize="@dimen/font_size_14"
-            app:layout_constraintEnd_toEndOf="@id/inputLayoutUsername"
-            app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
-            app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLogin"
-            style="MaterialComponents.Button"
-            android:layout_width="@dimen/xlarge_200"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/normal_100"
-            android:onClick="@{clickHandler::onClick}"
-            android:text="@string/login"
-            app:cornerRadius="@dimen/normal_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/countryPicker" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/countryPicker"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_200"
+                android:layout_marginTop="@dimen/small_100"
+                app:ccpDialog_backgroundColor="?attr/colorOnPrimary"
+                app:ccpDialog_fastScroller_bubbleColor="?attr/colorOnPrimary"
+                app:ccpDialog_fastScroller_handleColor="@color/orange"
+                app:ccpDialog_keyboardAutoPopup="false"
+                app:ccpDialog_showCloseIcon="true"
+                app:ccpDialog_showNameCode="false"
+                app:ccpDialog_showPhoneCode="false"
+                app:ccpDialog_textColor="?attr/colorOnBackground"
+                app:ccp_arrowColor="@color/orange"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_contentColor="?attr/colorOnBackground"
+                app:ccp_countryPreference="SG"
+                app:ccp_rememberLastSelection="true"
+                app:ccp_showFullName="true"
+                app:ccp_showNameCode="false"
+                app:ccp_showPhoneCode="false"
+                app:ccp_textGravity="LEFT"
+                app:ccp_textSize="@dimen/font_size_14"
+                app:layout_constraintEnd_toEndOf="@id/inputLayoutUsername"
+                app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
+                app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonLogin"
+                style="MaterialComponents.Button"
+                android:layout_width="@dimen/xlarge_200"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/normal_100"
+                android:enabled="@{viewModel.loginEnable}"
+                android:onClick="@{clickHandler::onClick}"
+                android:text="@string/login"
+                app:cornerRadius="@dimen/normal_100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/countryPicker" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </layout>

@@ -12,20 +12,24 @@ import com.rbnb.userdirectory.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var viewModel: LoginViewModel
+    private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
-        binding.clickHandler = this
+        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        val viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+        binding.apply {
+            this.viewModel = viewModel
+            clickHandler = this@LoginFragment
+            lifecycleOwner = viewLifecycleOwner
+        }
     }
 
     override fun onClick(view: View) {
