@@ -8,10 +8,6 @@
         <variable
             name="viewModel"
             type="com.rbnb.userdirectory.login.LoginViewModel" />
-
-        <variable
-            name="clickHandler"
-            type="android.view.View.OnClickListener" />
     </data>
 
     <ScrollView
@@ -152,7 +148,7 @@
                 android:layout_marginHorizontal="@dimen/normal_100"
                 android:layout_marginTop="@dimen/normal_100"
                 android:enabled="@{viewModel.loginEnable}"
-                android:onClick="@{clickHandler::onClick}"
+                android:onClick="@{() -> viewModel.authenticateAccount()}"
                 android:text="@string/login"
                 app:cornerRadius="@dimen/normal_100"
                 app:layout_constraintEnd_toEndOf="parent"

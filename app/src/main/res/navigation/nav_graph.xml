@@ -20,7 +20,7 @@
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
-        android:name="com.rbnb.userdirectory.users.UserListFragment"
+        android:name="com.rbnb.userdirectory.user_list.UserListFragment"
         android:label="fragment_user_list"
         tools:layout="@layout/fragment_user_list" />
 </navigation>
