@@ -1,14 +1,13 @@
 package com.rbnb.userdirectory.user_list
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 
 class UserListViewModel(private val repository: UserListRepository) : ViewModel() {
 
     private val _users = MutableLiveData<List<User>>()
+    val users: LiveData<List<User>>
+        get() = _users
 
     init {
         getUserList()

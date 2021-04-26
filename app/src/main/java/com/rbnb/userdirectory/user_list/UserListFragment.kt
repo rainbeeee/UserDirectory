@@ -15,14 +15,28 @@ class UserListFragment : Fragment() {
         UserListViewModelFactory((activity?.application as UserDirectoryApplication).userListRepository)
     }
 
+    private val adapter by lazy {
+        UserListAdapter()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentUserListBinding.inflate(layoutInflater, container, false)
         binding.viewModel = viewModel
+        binding.recyclerViewUsers.adapter = adapter
         binding.lifecycleOwner = viewLifecycleOwner
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.users.observe(viewLifecycleOwner, { users ->
+            adapter.submitList(users)
+
+        })
     }
 }

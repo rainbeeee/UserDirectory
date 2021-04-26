@@ -8,4 +8,5 @@
     <string name="login">login</string>
     <string name="description_login_shape">login shape</string>
     <string name="description_logo">logo</string>
+    <string name="toolbar_user_directory">User list</string>
 </resources>
