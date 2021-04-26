@@ -13,7 +13,7 @@ import com.rbnb.userdirectory.databinding.FragmentLoginBinding
 class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory((activity?.application as UserDirectoryApplication).repository)
+        LoginViewModelFactory((activity?.application as UserDirectoryApplication).accountRepository)
     }
 
     override fun onCreateView(

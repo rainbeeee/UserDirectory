@@ -4,11 +4,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.rbnb.userdirectory.network.UserDirectoryApi
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
-class UserListViewModel : ViewModel() {
+class UserListViewModel(private val repository: UserListRepository) : ViewModel() {
 
     private val _users = MutableLiveData<List<User>>()
 
@@ -18,24 +16,23 @@ class UserListViewModel : ViewModel() {
 
     private fun getUserList() {
         viewModelScope.launch {
-            try {
-                _users.value = UserDirectoryApi.retrofitService.getUsers()
-//                _status.value = DONE
-                Timber.d("users: Success. ${_users.value}")
-            } catch (e: Exception) {
-                _users.value = ArrayList()
-//                _status.value = ERROR
-                Timber.d("users: Failure. {${e.localizedMessage}}")
+            when (val response = repository.getUserList()) {
+                emptyList<User>() -> {
+                    _users.value = ArrayList()
+                }
+                else -> {
+                    _users.value = response
+                }
             }
         }
     }
 }
 
-class UserListViewModelFactory() : ViewModelProvider.Factory {
+class UserListViewModelFactory(private val repository: UserListRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return UserListViewModel() as T
+            return UserListViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

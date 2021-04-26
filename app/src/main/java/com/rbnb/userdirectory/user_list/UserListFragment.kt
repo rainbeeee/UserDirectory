@@ -6,12 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.rbnb.userdirectory.UserDirectoryApplication
 import com.rbnb.userdirectory.databinding.FragmentUserListBinding
 
 class UserListFragment : Fragment() {
 
     private val viewModel: UserListViewModel by viewModels {
-        UserListViewModelFactory()
+        UserListViewModelFactory((activity?.application as UserDirectoryApplication).userListRepository)
     }
 
     override fun onCreateView(
