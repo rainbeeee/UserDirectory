@@ -27,9 +27,25 @@ data class User(
             val lng: String
         )
     }
+
     data class Company(
         val name: String,
         val catchPhrase: String,
         val bs: String
     )
+
+    val addressLine1
+        get() = "${address.suite}, ${address.street}"
+
+    val addressLine2
+        get() = "${address.city}, ${address.zipcode}"
+
+    val companyName: String
+        get() = company.name
+
+    val companyCatchPhrase: String
+        get() = company.catchPhrase
+
+    val companyBs: String
+        get() = company.bs
 }

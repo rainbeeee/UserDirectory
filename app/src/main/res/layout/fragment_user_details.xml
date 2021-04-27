@@ -28,7 +28,9 @@
         <androidx.core.widget.NestedScrollView
             android:id="@+id/scrollViewUserDetails"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:paddingBottom="@dimen/normal_100"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbarUserDetails">
@@ -163,6 +165,30 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewWebsite" />
 
+                <TextView
+                    android:id="@+id/textViewAddressLine1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_50"
+                    android:text="@{user.addressLine1}"
+                    android:textSize="@dimen/font_size_16"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
+                    app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewUserAddress"
+                    tools:text="www.abc.com" />
+
+                <TextView
+                    android:id="@+id/textViewAddressLine2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_50"
+                    android:text="@{user.addressLine2}"
+                    android:textSize="@dimen/font_size_16"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewAddressLine1"
+                    app:layout_constraintStart_toStartOf="@+id/textViewAddressLine1"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine1"
+                    tools:text="www.abc.com" />
+
                 <fragment
                     android:id="@+id/mapUserDetails"
                     android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -172,7 +198,61 @@
                     android:layout_marginTop="@dimen/small_100"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewUserAddress" />
+                    app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine2" />
+
+                <TextView
+                    android:id="@+id/textViewUserCompany"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/normal_100"
+                    android:layout_marginTop="@dimen/normal_100"
+                    android:padding="@dimen/small_50"
+                    android:text="@string/company"
+                    android:textSize="@dimen/font_size_18"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mapUserDetails" />
+
+                <TextView
+                    android:id="@+id/textViewCompanyName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/normal_100"
+                    android:layout_marginTop="@dimen/small_100"
+                    android:padding="@dimen/small_50"
+                    android:text="@{user.companyName}"
+                    android:textSize="@dimen/font_size_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewUserCompany"
+                    tools:text="Company Name" />
+
+                <TextView
+                    android:id="@+id/textViewCompanyCatchPhrase"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_50"
+                    android:text="@{user.companyCatchPhrase}"
+                    android:textSize="@dimen/font_size_16"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewCompanyName"
+                    app:layout_constraintStart_toStartOf="@+id/textViewCompanyName"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCompanyName"
+                    tools:text="Company catchphrase" />
+
+                <TextView
+                    android:id="@+id/textViewCompanyBs"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/small_50"
+                    android:text="@{user.companyBs}"
+                    android:textSize="@dimen/font_size_16"
+                    app:layout_constraintEnd_toEndOf="@+id/textViewCompanyCatchPhrase"
+                    app:layout_constraintStart_toStartOf="@+id/textViewCompanyCatchPhrase"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewCompanyCatchPhrase"
+                    tools:text="Company BS" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
