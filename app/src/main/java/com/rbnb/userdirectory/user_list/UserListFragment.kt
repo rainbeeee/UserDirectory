@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.rbnb.userdirectory.UserDirectoryApplication
 import com.rbnb.userdirectory.databinding.FragmentUserListBinding
 
@@ -16,7 +17,9 @@ class UserListFragment : Fragment() {
     }
 
     private val adapter by lazy {
-        UserListAdapter()
+        UserListAdapter(UserItemListener { user ->
+            viewModel.onUserClicked(user)
+        })
     }
 
     override fun onCreateView(
@@ -36,7 +39,19 @@ class UserListFragment : Fragment() {
 
         viewModel.users.observe(viewLifecycleOwner, { users ->
             adapter.submitList(users)
-
         })
+
+        viewModel.navigateToUserDetails.observe(viewLifecycleOwner, { user ->
+            navigateToUserDetails(user)
+        })
+    }
+
+    private fun navigateToUserDetails(user: User?) {
+        user?.let {
+            val action =
+                UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user)
+            findNavController().navigate(action)
+            viewModel.onUserDetailsNavigated()
+        }
     }
 }

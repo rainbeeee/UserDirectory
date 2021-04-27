@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.rbnb.userdirectory.databinding.ItemUserBinding
 
-class UserListAdapter : ListAdapter<User, RecyclerView.ViewHolder>(UserItemDiffCallback()) {
+class UserListAdapter(private val clickListener: UserItemListener) : ListAdapter<User, RecyclerView.ViewHolder>(UserItemDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return UserViewHolder.from(parent)
@@ -16,7 +16,7 @@ class UserListAdapter : ListAdapter<User, RecyclerView.ViewHolder>(UserItemDiffC
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is UserViewHolder) {
             val user = getItem(position)
-            holder.bind(user)
+            holder.bind(user, clickListener)
         }
     }
 }
@@ -36,8 +36,9 @@ class UserViewHolder constructor(private val binding: ItemUserBinding) :
         }
     }
 
-    fun bind(user: User) {
+    fun bind(user: User, clickListener: UserItemListener) {
         binding.user = user
+        binding.clickListener = clickListener
         binding.executePendingBindings()
     }
 }
@@ -50,4 +51,8 @@ class UserItemDiffCallback : DiffUtil.ItemCallback<User>() {
     override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
         return oldItem == newItem
     }
+}
+
+class UserItemListener(val clickListener: (user: User) -> Unit) {
+    fun onClick(user: User) = clickListener(user)
 }

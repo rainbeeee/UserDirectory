@@ -5,16 +5,19 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="user"
             type="com.rbnb.userdirectory.user_list.User" />
+
+        <variable
+            name="clickListener"
+            type="com.rbnb.userdirectory.user_list.UserItemListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{() -> clickListener.onClick(user)}"
         android:padding="@dimen/normal_100">
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -45,7 +48,7 @@
             app:layout_constraintStart_toEndOf="@+id/imageViewUserPhoto"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            tools:text="Disguised Toast" />
+            tools:text="@tools:sample/cities" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textViewUserFullName"
@@ -60,7 +63,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textViewUsername"
             app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
-            tools:text="Jeremy Wang" />
+            tools:text="@tools:sample/full_names" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

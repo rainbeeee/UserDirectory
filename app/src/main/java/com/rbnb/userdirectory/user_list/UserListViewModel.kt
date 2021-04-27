@@ -9,6 +9,10 @@ class UserListViewModel(private val repository: UserListRepository) : ViewModel(
     val users: LiveData<List<User>>
         get() = _users
 
+    private val _navigateToUserDetails = MutableLiveData<User?>()
+    val navigateToUserDetails
+        get() = _navigateToUserDetails
+
     init {
         getUserList()
     }
@@ -25,9 +29,18 @@ class UserListViewModel(private val repository: UserListRepository) : ViewModel(
             }
         }
     }
+
+    fun onUserClicked(user: User) {
+        _navigateToUserDetails.value = user
+    }
+
+    fun onUserDetailsNavigated() {
+        _navigateToUserDetails.value = null
+    }
 }
 
-class UserListViewModelFactory(private val repository: UserListRepository) : ViewModelProvider.Factory {
+class UserListViewModelFactory(private val repository: UserListRepository) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserListViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
