@@ -10,4 +10,6 @@
     <string name="description_logo">logo</string>
     <string name="toolbar_user_directory">User list</string>
     <string name="toolbar_user_profile">User Profile</string>
+    <string name="details">Details</string>
+    <string name="address">Address</string>
 </resources>

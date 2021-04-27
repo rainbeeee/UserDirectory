@@ -1,0 +1,19 @@
+<resources>
+    <!--
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=96:6B:81:55:E7:AA:EE:71:F5:6F:65:ED:06:EB:4D:75:D6:52:3D:2C%3Bcom.rbnb.userdirectory
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.rbnb.userdirectory
+
+    SHA-1 certificate fingerprint:
+    96:6B:81:55:E7:AA:EE:71:F5:6F:65:ED:06:EB:4D:75:D6:52:3D:2C
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAb3RRXJr1TOvIW182sXIeuXVLSq2pWeM8</string>
+</resources>
