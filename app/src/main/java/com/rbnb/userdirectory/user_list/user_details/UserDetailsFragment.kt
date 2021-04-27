@@ -1,28 +1,25 @@
 package com.rbnb.userdirectory.user_list.user_details
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.rbnb.userdirectory.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import com.rbnb.userdirectory.databinding.FragmentUserDetailsBinding
 
 class UserDetailsFragment : Fragment() {
 
-    private lateinit var viewModel: UserDetailsViewModel
+    private val safeArgs: UserDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_user_details, container, false)
-    }
+    ): View {
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(UserDetailsViewModel::class.java)
-        // TODO: Use the ViewModel
+        val binding = FragmentUserDetailsBinding.inflate(inflater, container, false)
+        binding.user = safeArgs.user
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
-
 }

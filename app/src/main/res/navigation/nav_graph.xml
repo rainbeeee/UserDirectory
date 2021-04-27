@@ -22,7 +22,7 @@
         android:id="@+id/userListFragment"
         android:name="com.rbnb.userdirectory.user_list.UserListFragment"
         android:label="fragment_user_list"
-        tools:layout="@layout/fragment_user_list" >
+        tools:layout="@layout/fragment_user_list">
         <action
             android:id="@+id/action_userListFragment_to_userDetailsFragment"
             app:destination="@id/userDetailsFragment"
@@ -35,9 +35,11 @@
         android:id="@+id/userDetailsFragment"
         android:name="com.rbnb.userdirectory.user_list.user_details.UserDetailsFragment"
         android:label="fragment_user_details"
-        tools:layout="@layout/fragment_user_details" >
+        tools:layout="@layout/fragment_user_details">
         <argument
             android:name="user"
-            app:argType="com.rbnb.userdirectory.user_list.User" />
+            android:defaultValue="@null"
+            app:argType="com.rbnb.userdirectory.user_list.User"
+            app:nullable="true" />
     </fragment>
 </navigation>
