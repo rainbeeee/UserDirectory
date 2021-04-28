@@ -7,14 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.rbnb.userdirectory.UserDirectoryApplication
 import com.rbnb.userdirectory.databinding.FragmentUserListBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class UserListFragment : Fragment() {
 
-    private val viewModel: UserListViewModel by viewModels {
-        UserListViewModelFactory((activity?.application as UserDirectoryApplication).userListRepository)
-    }
+    private val viewModel: UserListViewModel by viewModels()
 
     private val adapter by lazy {
         UserListAdapter(UserItemListener { user ->

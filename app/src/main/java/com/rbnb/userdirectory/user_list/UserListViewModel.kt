@@ -1,9 +1,12 @@
 package com.rbnb.userdirectory.user_list
 
 import androidx.lifecycle.*
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UserListViewModel(private val repository: UserListRepository) : ViewModel() {
+@HiltViewModel
+class UserListViewModel @Inject constructor(private val repository: UserListRepository) : ViewModel() {
 
     private val _users = MutableLiveData<List<User>>()
     val users: LiveData<List<User>>
@@ -36,16 +39,5 @@ class UserListViewModel(private val repository: UserListRepository) : ViewModel(
 
     fun onUserDetailsNavigated() {
         _navigateToUserDetails.value = null
-    }
-}
-
-class UserListViewModelFactory(private val repository: UserListRepository) :
-    ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UserListViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return UserListViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
