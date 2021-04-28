@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 private const val DB_NAME = "orange_pages_database"
+private const val DB_DIRECTORY = "database/orange_pages.db"
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -27,6 +28,7 @@ object RoomModule {
             OrangePagesDatabase::class.java,
             DB_NAME
         ).fallbackToDestructiveMigration()
+            .createFromAsset(DB_DIRECTORY)
             .build()
 
     @Provides
