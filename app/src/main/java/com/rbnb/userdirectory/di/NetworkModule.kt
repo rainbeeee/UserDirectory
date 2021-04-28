@@ -15,7 +15,7 @@ private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
 
     @Singleton
     @Provides

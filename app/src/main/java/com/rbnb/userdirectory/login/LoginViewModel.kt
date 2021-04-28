@@ -3,10 +3,13 @@ package com.rbnb.userdirectory.login
 import androidx.lifecycle.*
 import com.rbnb.userdirectory.database.account.Account
 import com.rbnb.userdirectory.database.account.AccountRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
-class LoginViewModel(private val repository: AccountRepository) : ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(private val repository: AccountRepository) : ViewModel() {
 
     val username = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -50,15 +53,5 @@ class LoginViewModel(private val repository: AccountRepository) : ViewModel() {
 
     fun doneNavigating() {
         _navigateToUserList.value = null
-    }
-}
-
-class LoginViewModelFactory(private val repository: AccountRepository) : ViewModelProvider.Factory {
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return LoginViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

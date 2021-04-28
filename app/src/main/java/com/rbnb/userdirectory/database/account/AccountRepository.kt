@@ -1,6 +1,8 @@
 package com.rbnb.userdirectory.database.account
 
-class AccountRepository(private val accountDao: AccountDao) {
+import javax.inject.Inject
+
+class AccountRepository @Inject constructor(private val accountDao: AccountDao) {
 
     suspend fun getAccount(username: String?, password: String?): Account? {
         return accountDao.getAccount(username, password)
