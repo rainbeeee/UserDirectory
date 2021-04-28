@@ -7,13 +7,13 @@
 
         <variable
             name="user"
-            type="com.rbnb.userdirectory.user_list.User" />
+            type="com.rbnb.orangepages.user_list.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".UserDirectoryActivity">
+        tools:context=".OrangePagesActivity">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarUserDetails"

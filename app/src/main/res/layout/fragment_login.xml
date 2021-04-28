@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.rbnb.userdirectory.login.LoginViewModel" />
+            type="com.rbnb.orangepages.login.LoginViewModel" />
     </data>
 
     <ScrollView

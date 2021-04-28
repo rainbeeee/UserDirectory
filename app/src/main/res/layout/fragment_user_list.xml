@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.rbnb.userdirectory.user_list.UserListViewModel" />
+            type="com.rbnb.orangepages.user_list.UserListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -49,7 +49,7 @@
                         android:background="?android:colorBackground"
                         app:layout_collapseMode="pin"
                         app:layout_scrollFlags="scroll|enterAlways"
-                        app:title="@string/toolbar_user_directory" />
+                        app:title="@string/toolbar_user_list" />
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 

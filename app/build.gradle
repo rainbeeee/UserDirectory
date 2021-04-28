@@ -13,7 +13,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.rbnb.userdirectory"
+        applicationId "com.rbnb.orangepages"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

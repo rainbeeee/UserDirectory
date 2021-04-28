@@ -7,11 +7,11 @@
 
         <variable
             name="user"
-            type="com.rbnb.userdirectory.user_list.User" />
+            type="com.rbnb.orangepages.user_list.User" />
 
         <variable
             name="clickListener"
-            type="com.rbnb.userdirectory.user_list.UserItemListener" />
+            type="com.rbnb.orangepages.user_list.UserItemListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.UserDirectory" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.OrangePages" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/orange</item>
         <item name="colorPrimaryVariant">@color/burnt_orange</item>
         <item name="colorOnPrimary">@color/black</item>
