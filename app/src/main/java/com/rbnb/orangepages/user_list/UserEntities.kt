@@ -15,24 +15,15 @@ data class User(
     val website: String,
     val company: @RawValue Company
 ) : Parcelable {
-    data class Address(
-        val street: String,
-        val suite: String,
-        val city: String,
-        val zipcode: String,
-        val geo: Geo
-    ) {
-        data class Geo(
-            val lat: String,
-            val lng: String
-        )
-    }
 
-    data class Company(
-        val name: String,
-        val catchPhrase: String,
-        val bs: String
-    )
+    val lat: Double
+        get() = address.geo.lat.toDouble()
+
+    val long: Double
+        get() = address.geo.lng.toDouble()
+
+    val city: String
+        get() = address.city
 
     val addressLine1
         get() = "${address.suite}, ${address.street}"
@@ -49,3 +40,22 @@ data class User(
     val companyBs: String
         get() = company.bs
 }
+
+data class Address(
+    val street: String,
+    val suite: String,
+    val city: String,
+    val zipcode: String,
+    val geo: Geo
+)
+
+data class Geo(
+    val lat: String,
+    val lng: String
+)
+
+data class Company(
+    val name: String,
+    val catchPhrase: String,
+    val bs: String
+)
