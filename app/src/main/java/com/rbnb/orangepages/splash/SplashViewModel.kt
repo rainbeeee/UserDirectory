@@ -1,4 +1,4 @@
-package com.rbnb.orangepages
+package com.rbnb.orangepages.splash
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

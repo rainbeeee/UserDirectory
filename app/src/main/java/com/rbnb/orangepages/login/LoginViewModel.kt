@@ -25,6 +25,10 @@ class LoginViewModel @Inject constructor(private val repository: AccountReposito
     val navigateToUserList: LiveData<Boolean?>
         get() = _navigateToUserList
 
+    private val _errorEnabled = MutableLiveData<Boolean?>()
+    val errorEnabled: LiveData<Boolean?>
+        get() = _errorEnabled
+
     init {
         loginCredentials.addSource(username) {
             loginCredentials.value = initLoginCredentials()
@@ -47,6 +51,8 @@ class LoginViewModel @Inject constructor(private val repository: AccountReposito
             Timber.d("login: account = $account")
             if (account != null) {
                 _navigateToUserList.value = true
+            } else {
+                _errorEnabled.value = true
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.rbnb.orangepages
+package com.rbnb.orangepages.splash
 
 import android.animation.Animator
 import android.os.Bundle

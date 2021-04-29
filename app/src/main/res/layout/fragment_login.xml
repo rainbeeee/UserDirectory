@@ -57,31 +57,49 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textViewLoginHeading1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/normal_200"
                 android:layout_marginTop="@dimen/normal_125"
                 android:text="@string/login_heading_1"
                 android:textSize="@dimen/font_size_20"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textViewLoginHeading2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/login_heading_2"
                 android:textSize="@dimen/font_size_18"
+                app:layout_constraintEnd_toEndOf="@id/textViewLoginHeading1"
                 app:layout_constraintStart_toStartOf="@id/textViewLoginHeading1"
                 app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeading1" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textViewLoginError"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/normal_100"
+                android:drawablePadding="@dimen/small_100"
+                android:text="@string/login_error"
+                android:textColor="@color/error_red"
+                android:textSize="@dimen/font_size_14"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_error_outline_24"
+                app:error_enabled="@{viewModel.errorEnabled}"
+                app:layout_constraintEnd_toEndOf="@id/textViewLoginHeading2"
+                app:layout_constraintStart_toStartOf="@id/textViewLoginHeading2"
+                app:layout_constraintTop_toBottomOf="@+id/textViewLoginHeading2"
+                tools:visibility="gone" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputLayoutUsername"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/normal_200"
-                android:layout_marginTop="@dimen/normal_150"
                 android:hint="@string/username"
                 app:boxBackgroundColor="@android:color/transparent"
                 app:endIconDrawable="@drawable/ic_person_24"
@@ -89,7 +107,7 @@
                 app:endIconTint="@color/orange"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textViewLoginHeading2">
+                app:layout_constraintTop_toBottomOf="@id/textViewLoginError">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editTextUsername"
