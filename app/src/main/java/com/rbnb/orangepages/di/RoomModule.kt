@@ -2,6 +2,8 @@ package com.rbnb.orangepages.di
 
 import android.content.Context
 import androidx.room.Room
+import com.rbnb.orangepages.Constants.DB_DIRECTORY
+import com.rbnb.orangepages.Constants.DB_NAME
 import com.rbnb.orangepages.database.OrangePagesDatabase
 import com.rbnb.orangepages.database.account.AccountDao
 import dagger.Module
@@ -10,9 +12,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
-
-private const val DB_NAME = "orange_pages_database"
-private const val DB_DIRECTORY = "database/orange_pages.db"
 
 @Module
 @InstallIn(SingletonComponent::class)

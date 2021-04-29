@@ -1,5 +1,6 @@
 package com.rbnb.orangepages.di
 
+import com.rbnb.orangepages.Constants.BASE_URL
 import com.rbnb.orangepages.network.OrangePagesApiService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -10,8 +11,6 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
-
-private const val BASE_URL = "https://jsonplaceholder.typicode.com/"
 
 @Module
 @InstallIn(SingletonComponent::class)
