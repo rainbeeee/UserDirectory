@@ -25,11 +25,16 @@ class UserListViewModel @Inject constructor(
     val navigateToLogin
         get() = _navigateToLogin
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading
+        get() = _isLoading
+
     init {
         getUserList()
     }
 
     private fun getUserList() {
+        _isLoading.value = true
         viewModelScope.launch {
             when (val response = repository.getUserList()) {
                 emptyList<User>() -> {
@@ -39,6 +44,7 @@ class UserListViewModel @Inject constructor(
                     _users.value = response
                 }
             }
+            _isLoading.value = false
         }
     }
 
