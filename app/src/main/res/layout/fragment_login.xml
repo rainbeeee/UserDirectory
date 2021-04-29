@@ -155,6 +155,18 @@
                 app:layout_constraintStart_toStartOf="@id/inputLayoutUsername"
                 app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
 
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/checkboxLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange"
+                android:text="@string/login_remember"
+                app:checked_change="@{viewModel}"
+                app:layout_constraintEnd_toEndOf="@id/countryPicker"
+                app:layout_constraintStart_toStartOf="@id/countryPicker"
+                app:layout_constraintTop_toBottomOf="@+id/countryPicker"
+                tools:checked="true" />
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonLogin"
                 style="MaterialComponents.Button"
@@ -168,7 +180,7 @@
                 app:cornerRadius="@dimen/normal_100"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/countryPicker" />
+                app:layout_constraintTop_toBottomOf="@+id/checkboxLogin" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

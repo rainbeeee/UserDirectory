@@ -54,4 +54,8 @@ class LoginViewModel @Inject constructor(private val repository: AccountReposito
     fun doneNavigating() {
         _navigateToUserList.value = null
     }
+
+    fun onKeepSignedIn(shouldKeepSignedIn: Boolean) {
+        Timber.d("login: shouldKeepSignedIn is $shouldKeepSignedIn")
+    }
 }
