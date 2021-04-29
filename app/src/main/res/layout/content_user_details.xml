@@ -1,230 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="user"
+            type="com.rbnb.orangepages.user_list.User" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/normal_100">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageViewUserPhoto"
-            android:layout_width="@dimen/xlarge_225"
-            android:layout_height="@dimen/xlarge_225"
-            android:layout_marginTop="@dimen/normal_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-            app:srcCompat="@drawable/ic_user" />
-
-        <TextView
-            android:id="@+id/textViewUsername"
-            tools:text="@tools:sample/cities"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/normal_100"
-            android:text="@{user.username}"
-            android:textAlignment="center"
-            android:textSize="@dimen/font_size_24"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageViewUserPhoto" />
-
-        <TextView
-            android:id="@+id/textViewUserFullName"
-            tools:text="@tools:sample/full_names"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@{user.name}"
-            android:textAlignment="center"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="@+id/textViewUsername"
-            app:layout_constraintStart_toStartOf="@+id/textViewUsername"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
-
-        <View
-            android:id="@+id/dividerUserDetails"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="@dimen/normal_100"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintEnd_toEndOf="@+id/textViewUserFullName"
-            app:layout_constraintStart_toStartOf="@+id/textViewUserFullName"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUserFullName" />
-
-        <TextView
-            android:id="@+id/textViewUserDetails"
-            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@string/details"
-            android:textSize="@dimen/font_size_18"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dividerUserDetails" />
+            android:paddingBottom="@dimen/normal_100">
 
-        <TextView
-            android:id="@+id/textViewEmail"
-            tools:text="abc@gmail.com"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/small_100"
-            android:drawablePadding="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@{user.email}"
-            android:textSize="@dimen/font_size_16"
-            app:drawableStartCompat="@drawable/ic_email_24"
-            app:layout_constraintBottom_toTopOf="@+id/textViewPhone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUserDetails" />
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imageViewUserPhoto"
+                android:layout_width="@dimen/xlarge_225"
+                android:layout_height="@dimen/xlarge_225"
+                android:layout_marginTop="@dimen/normal_100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+                app:srcCompat="@drawable/ic_user" />
 
-        <TextView
-            android:id="@+id/textViewPhone"
-            tools:text="@tools:sample/us_phones"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@{user.phone}"
-            android:textSize="@dimen/font_size_16"
-            app:drawableStartCompat="@drawable/ic_round_phone_24"
-            app:layout_constraintBottom_toTopOf="@+id/textViewWebsite"
-            app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
-            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+            <TextView
+                android:id="@+id/textViewUsername"
+                tools:text="@tools:sample/cities"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/normal_100"
+                android:text="@{user.username}"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_24"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewUserPhoto" />
 
-        <TextView
-            android:id="@+id/textViewWebsite"
-            tools:text="www.abc.com"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@{user.website}"
-            android:textSize="@dimen/font_size_16"
-            app:drawableStartCompat="@drawable/ic_world_24"
-            app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
-            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPhone" />
+            <TextView
+                android:id="@+id/textViewUserFullName"
+                tools:text="@tools:sample/full_names"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{user.name}"
+                android:textAlignment="center"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="@+id/textViewUsername"
+                app:layout_constraintStart_toStartOf="@+id/textViewUsername"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
 
-        <TextView
-            android:id="@+id/textViewUserAddress"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@string/address"
-            android:textSize="@dimen/font_size_18"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewWebsite" />
+            <View
+                android:id="@+id/dividerUserDetails"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/normal_100"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="@+id/textViewUserFullName"
+                app:layout_constraintStart_toStartOf="@+id/textViewUserFullName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserFullName" />
 
-        <TextView
-            android:id="@+id/textViewAddressLine1"
-            tools:text="www.abc.com"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_50"
-            android:text="@{user.addressLine1}"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
-            app:layout_constraintStart_toStartOf="@+id/textViewEmail"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUserAddress" />
+            <TextView
+                android:id="@+id/textViewUserDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@string/details"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerUserDetails" />
 
-        <TextView
-            android:id="@+id/textViewAddressLine2"
-            tools:text="www.abc.com"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_50"
-            android:text="@{user.addressLine2}"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="@+id/textViewAddressLine1"
-            app:layout_constraintStart_toStartOf="@+id/textViewAddressLine1"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine1" />
+            <TextView
+                android:id="@+id/textViewEmail"
+                tools:text="abc@gmail.com"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/small_100"
+                android:drawablePadding="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@{user.email}"
+                android:textSize="@dimen/font_size_16"
+                app:drawableStartCompat="@drawable/ic_email_24"
+                app:layout_constraintBottom_toTopOf="@+id/textViewPhone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserDetails" />
 
-        <fragment
-            android:id="@+id/mapUserDetails"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/xlarge_250"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/small_100"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine2" />
+            <TextView
+                android:id="@+id/textViewPhone"
+                tools:text="@tools:sample/us_phones"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@{user.phone}"
+                android:textSize="@dimen/font_size_16"
+                app:drawableStartCompat="@drawable/ic_round_phone_24"
+                app:layout_constraintBottom_toTopOf="@+id/textViewWebsite"
+                app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
 
-        <TextView
-            android:id="@+id/textViewUserCompany"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/normal_100"
-            android:padding="@dimen/small_50"
-            android:text="@string/company"
-            android:textSize="@dimen/font_size_18"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/mapUserDetails" />
+            <TextView
+                android:id="@+id/textViewWebsite"
+                tools:text="www.abc.com"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@{user.website}"
+                android:textSize="@dimen/font_size_16"
+                app:drawableStartCompat="@drawable/ic_world_24"
+                app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPhone" />
 
-        <TextView
-            android:id="@+id/textViewCompanyName"
-            tools:text="Company Name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/normal_100"
-            android:layout_marginTop="@dimen/small_100"
-            android:padding="@dimen/small_50"
-            android:text="@{user.companyName}"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewUserCompany" />
+            <TextView
+                android:id="@+id/textViewUserAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@string/address"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewWebsite" />
 
-        <TextView
-            android:id="@+id/textViewCompanyCatchPhrase"
-            tools:text="Company catchphrase"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_50"
-            android:text="@{user.companyCatchPhrase}"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="@+id/textViewCompanyName"
-            app:layout_constraintStart_toStartOf="@+id/textViewCompanyName"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCompanyName" />
+            <TextView
+                android:id="@+id/textViewAddressLine1"
+                tools:text="www.abc.com"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_50"
+                android:text="@{user.addressLine1}"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="@+id/textViewEmail"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserAddress" />
 
-        <TextView
-            android:id="@+id/textViewCompanyBs"
-            tools:text="Company BS"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/small_50"
-            android:text="@{user.companyBs}"
-            android:textSize="@dimen/font_size_16"
-            app:layout_constraintEnd_toEndOf="@+id/textViewCompanyCatchPhrase"
-            app:layout_constraintStart_toStartOf="@+id/textViewCompanyCatchPhrase"
-            app:layout_constraintTop_toBottomOf="@+id/textViewCompanyCatchPhrase" />
+            <TextView
+                android:id="@+id/textViewAddressLine2"
+                tools:text="www.abc.com"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_50"
+                android:text="@{user.addressLine2}"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="@+id/textViewAddressLine1"
+                app:layout_constraintStart_toStartOf="@+id/textViewAddressLine1"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine1" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <fragment
+                android:id="@+id/mapUserDetails"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/xlarge_250"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/small_100"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAddressLine2" />
 
-</androidx.core.widget.NestedScrollView>
+            <TextView
+                android:id="@+id/textViewUserCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/normal_100"
+                android:padding="@dimen/small_50"
+                android:text="@string/company"
+                android:textSize="@dimen/font_size_18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/mapUserDetails" />
+
+            <TextView
+                android:id="@+id/textViewCompanyName"
+                tools:text="Company Name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/normal_100"
+                android:layout_marginTop="@dimen/small_100"
+                android:padding="@dimen/small_50"
+                android:text="@{user.companyName}"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserCompany" />
+
+            <TextView
+                android:id="@+id/textViewCompanyCatchPhrase"
+                tools:text="Company catchphrase"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_50"
+                android:text="@{user.companyCatchPhrase}"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="@+id/textViewCompanyName"
+                app:layout_constraintStart_toStartOf="@+id/textViewCompanyName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCompanyName" />
+
+            <TextView
+                android:id="@+id/textViewCompanyBs"
+                tools:text="Company BS"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/small_50"
+                android:text="@{user.companyBs}"
+                android:textSize="@dimen/font_size_16"
+                app:layout_constraintEnd_toEndOf="@+id/textViewCompanyCatchPhrase"
+                app:layout_constraintStart_toStartOf="@+id/textViewCompanyCatchPhrase"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCompanyCatchPhrase" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

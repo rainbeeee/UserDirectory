@@ -32,7 +32,7 @@ class UserDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentUserDetailsBinding.inflate(inflater, container, false)
-        binding.user = user
+        binding.contentUserDetails.user = user
         binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
