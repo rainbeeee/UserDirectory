@@ -56,6 +56,7 @@ class LoginViewModel @Inject constructor(private val repository: AccountReposito
     }
 
     fun onKeepSignedIn(shouldKeepSignedIn: Boolean) {
+        repository.keepSignedIn(shouldKeepSignedIn)
         Timber.d("login: shouldKeepSignedIn is $shouldKeepSignedIn")
     }
 }

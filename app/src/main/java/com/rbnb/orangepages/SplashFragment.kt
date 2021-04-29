@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.rbnb.orangepages.databinding.FragmentSplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SplashFragment : Fragment() {
+
+    private val viewModel: SplashViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,8 +26,7 @@ class SplashFragment : Fragment() {
             }
 
             override fun onAnimationEnd(p0: Animator?) {
-                val action = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
-                findNavController().navigate(action)
+                viewModel.onAnimationEnd()
             }
 
             override fun onAnimationCancel(p0: Animator?) {
@@ -32,5 +36,25 @@ class SplashFragment : Fragment() {
             }
         })
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.navigateToLogin.observe(viewLifecycleOwner, {
+            if (it == true) {
+                val action = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+                findNavController().navigate(action)
+                viewModel.doneNavigatingToLogin()
+            }
+        })
+
+        viewModel.navigateToUserList.observe(viewLifecycleOwner, {
+            if (it == true) {
+                val action = SplashFragmentDirections.actionSplashFragmentToUserListFragment()
+                findNavController().navigate(action)
+                viewModel.doneNavigatingToUserList()
+            }
+        })
     }
 }
