@@ -14,4 +14,5 @@
     <string name="address">Address</string>
     <string name="company">Company</string>
     <string name="login_remember">Keep me signed in</string>
+    <string name="menu_log_out">Log out</string>
 </resources>

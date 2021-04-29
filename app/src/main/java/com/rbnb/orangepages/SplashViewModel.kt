@@ -25,11 +25,11 @@ class SplashViewModel @Inject constructor(private val repository: AccountReposit
         }
     }
 
-    fun doneNavigatingToLogin() {
+    fun onLoginNavigated() {
         _navigateToLogin.value = null
     }
 
-    fun doneNavigatingToUserList() {
+    fun onUserDetailsNavigated() {
         _navigateToUserList.value = null
     }
 }

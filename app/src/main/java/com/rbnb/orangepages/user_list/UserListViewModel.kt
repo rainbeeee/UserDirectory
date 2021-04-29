@@ -1,12 +1,17 @@
 package com.rbnb.orangepages.user_list
 
 import androidx.lifecycle.*
+import com.rbnb.orangepages.database.account.AccountRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class UserListViewModel @Inject constructor(private val repository: UserListRepository) : ViewModel() {
+class UserListViewModel @Inject constructor(
+    private val repository: UserListRepository,
+    private val accountRepository: AccountRepository
+) : ViewModel() {
 
     private val _users = MutableLiveData<List<User>>()
     val users: LiveData<List<User>>
@@ -15,6 +20,10 @@ class UserListViewModel @Inject constructor(private val repository: UserListRepo
     private val _navigateToUserDetails = MutableLiveData<User?>()
     val navigateToUserDetails
         get() = _navigateToUserDetails
+
+    private val _navigateToLogin = MutableLiveData<Boolean?>()
+    val navigateToLogin
+        get() = _navigateToLogin
 
     init {
         getUserList()
@@ -39,5 +48,14 @@ class UserListViewModel @Inject constructor(private val repository: UserListRepo
 
     fun onUserDetailsNavigated() {
         _navigateToUserDetails.value = null
+    }
+
+    fun onLogOut() {
+        accountRepository.logOut()
+        _navigateToLogin.value = true
+    }
+
+    fun onLoginNavigated() {
+        _navigateToLogin.value = null
     }
 }

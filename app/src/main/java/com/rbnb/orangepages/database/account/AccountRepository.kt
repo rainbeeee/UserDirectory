@@ -25,4 +25,12 @@ class AccountRepository @Inject constructor(
             )
         }
     }
+
+    fun logOut() =
+        sharedPref.edit(commit = true) {
+            putBoolean(
+                Constants.KEY_KEEP_SIGNED_IN,
+                false
+            )
+        }
 }

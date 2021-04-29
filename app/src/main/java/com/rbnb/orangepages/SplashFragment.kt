@@ -42,19 +42,27 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.navigateToLogin.observe(viewLifecycleOwner, {
-            if (it == true) {
-                val action = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
-                findNavController().navigate(action)
-                viewModel.doneNavigatingToLogin()
-            }
+            navigateToLogin(it)
         })
 
         viewModel.navigateToUserList.observe(viewLifecycleOwner, {
-            if (it == true) {
-                val action = SplashFragmentDirections.actionSplashFragmentToUserListFragment()
-                findNavController().navigate(action)
-                viewModel.doneNavigatingToUserList()
-            }
+            navigateToUserList(it)
         })
+    }
+
+    private fun navigateToLogin(shouldNavigate: Boolean?) {
+        shouldNavigate?.let {
+            val action = SplashFragmentDirections.actionSplashFragmentToLoginFragment()
+            findNavController().navigate(action)
+            viewModel.onLoginNavigated()
+        }
+    }
+
+    private fun navigateToUserList(shouldNavigate: Boolean?) {
+        shouldNavigate?.let {
+            val action = SplashFragmentDirections.actionSplashFragmentToUserListFragment()
+            findNavController().navigate(action)
+            viewModel.onUserDetailsNavigated()
+        }
     }
 }
