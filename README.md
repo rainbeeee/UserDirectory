@@ -1,4 +1,4 @@
-# OrangePages
+# Orange Pages
 
 A simple application with login functionality that fetches list of users from https://jsonplaceholder.typicode.com/users.
 Upon selecting a user, it displays their details and show their location on a map through Maps SDK.
